@@ -1,0 +1,85 @@
+[colors.bright]
+black = "#808080"
+blue = "#0066ff"
+cyan = "#00ffff"
+green = "#33ff00"
+magenta = "#cc00ff"
+red = "#fe0100"
+white = "#FFFFFF"
+yellow = "#feff00"
+
+[shell]
+program = "/bin/zsh"
+args = ["-l"]
+[colors.cursor]
+cursor = "#ffffff"
+text = "#F81CE5"
+
+[colors.normal]
+black = "#000000"
+blue = "#0066ff"
+cyan = "#00ffff"
+green = "#33ff00"
+magenta = "#cc00ff"
+red = "#fe0100"
+white = "#d0d0d0"
+yellow = "#feff00"
+
+[colors.primary]
+background = "#00000e"
+foreground = "#ffffff"
+
+[cursor.style]
+#blink_interval = 500
+#blinking = "Always"
+#shape = "Block"
+
+[cursor.vi_mode_style]
+blinking = "Always"
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 11.25
+
+[font.normal]
+family = "xos4 Terminess Powerline"
+#family = "DejaVu Sans Mono for Powerline"
+#family = "JetBrains Mono,JetBrains Mono Medium"
+#family = "JetBrains Mono NL"
+style = "Regular"
+#style = "Book"
+[font.italic]
+family = "Terminess Nerd Font Propo"
+style = "Italic"
+[font.offset]
+x = 0
+y = 0
+
+[[hints.enabled]]
+action = "Copy"
+post_processing = false
+regex = '([0-9a-f]{12,128})|([[:digit:]]{1,3}\.[[:digit:]]{1,3}\.[[:digit:]]{1,3}\.[[:digit:]]{1,3})'
+
+[hints.enabled.binding]
+key = "U"
+mods = "Control|Shift"
+
+[scrolling]
+history = 10000
+multiplier = 10
+
+
+[window]
+decorations = "None"
+opacity =1
+title = "Terminal"
+startup_mode = "Windowed"
+[window.padding]
+x = 5
+y = 5
+[window.class]
+instance = "Alacritty"
+general = "Alacritty"
