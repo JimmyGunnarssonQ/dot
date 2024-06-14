@@ -45,7 +45,8 @@ TERM = "xterm-256color"
 size = 11.25
 
 [font.normal]
-family = "xos4 Terminess Powerline"
+#family = "xos4 Terminess Powerline"
+family = "Terminess Nerd Font"
 #family = "DejaVu Sans Mono for Powerline"
 #family = "JetBrains Mono,JetBrains Mono Medium"
 #family = "JetBrains Mono NL"

@@ -10,6 +10,7 @@ bindsym Mod4+y gaps inner current minus 5
 gaps inner 10
 gaps outer 10
 default_border pixel 0
+
 #exec
 exec --no-startup-id dex --autostart --environment i3
 #background, assuming wall-paper folder at Pictures/Wallpapers
@@ -189,11 +190,17 @@ mode "resize" {
 bindsym Mod4+r mode "resize"
 
 
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #bar{
 #        status_command i3status 
 #}
+
+mouse_warping none 
+popup_during_fullscreen leave_fullscreen
+workspace_auto_back_and_forth yes 
+show_marks yes
 
 #launch default light 
 #launch polybar
@@ -206,20 +213,23 @@ exec_always bash ~/.config/polybar/launch.sh
 for_window [class="^.*"] border pixel 0
 for_window [class="Conky"] floating enable 
 for_window [class="Alacritty"] floating enable
+for_window [class="Matplotlib"] floating enable 
 #for_window [class="Alacritty"] border pixel 1
 set $wc #ffffff
 set $bc #000000 
-hide_edge_borders both
+set $or #f59500
+set $gr #00ff00
+hide_edge_borders smart
 #set color 
 # class                 border  backgr. text    indicator child_border
-client.unfocused          #000000 #000000 #ffffff #00ff00
-client.focused_inactive #ffffff #f59500 #ffffff #00ff00
-client.focused        #000000 #f59500 #ffffff #00ff00 
-client.urgent           #0f343a #ff0000 #ffffff #00ff00
-client.placeholder      #000000 #0c0c0c #ffffff #00ff00
+client.unfocused          $bc $bc $wc $gr 
+client.focused_inactive $wc $or $wc $gr
+client.focused        $wc $or $wc $gr
+client.urgent           #0f343a #ff0000 $wc $gr
+client.placeholder      $wc #0c0c0c $wc $gr 
 
-client.background       #000000
-exec killall picom
-exec_always --no-startup-id picom -b
-exec killall conky
-exec_always --no-startup-id conky 
+client.background       $bc 
+#exec killall picom
+exec --no-startup-id picom -b
+#exec killall conky
+exec --no-startup-id conky 
