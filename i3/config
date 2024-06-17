@@ -224,7 +224,7 @@ hide_edge_borders smart
 # class                 border  backgr. text    indicator child_border
 client.unfocused          $bc $bc $wc $gr 
 client.focused_inactive $wc $or $wc $gr
-client.focused        $wc $or $wc $gr
+client.focused        $or $or $wc $gr
 client.urgent           #0f343a #ff0000 $wc $gr
 client.placeholder      $wc #0c0c0c $wc $gr 
 
@@ -233,3 +233,4 @@ client.background       $bc
 exec --no-startup-id picom -b
 #exec killall conky
 exec --no-startup-id conky 
+exec --no-startup-id birdtray
