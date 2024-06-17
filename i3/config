@@ -5,6 +5,8 @@ font pango: JetBrains Mono 0
 #Language set-up, by default use SE
 exec setxkbmap -layout se 
 #border 
+#set mod=Mod4
+
 bindsym Mod4+u gaps inner current plus 5
 bindsym Mod4+y gaps inner current minus 5
 gaps inner 10
@@ -100,6 +102,7 @@ bindsym Mod4+Shift+c exec code
 bindsym Mod4+shift+o exec okular 
 bindsym Mod4+shift+t exec torbrowser-launcher 
 bindsym Mod4+t exec thunderbird
+bindsym Mod4+Shift+p exec bash $HOME/.config/polybar/toggle.sh
 bindsym Mod4+shift+n exec alacritty -e "ranger"
 
 # change focus between tiling / floating windows
@@ -160,7 +163,7 @@ bindsym Mod4+Shift+0 move container to workspace number $ws10
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym Mod4+Shift+r restart
 # exit i3 (logs you out of your X session)
-#bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -212,7 +215,7 @@ exec_always bash ~/.config/polybar/launch.sh
 #volume bar 
 for_window [class="^.*"] border pixel 0
 for_window [class="Conky"] floating enable 
-for_window [class="Alacritty"] floating enable
+#for_window [class="Alacritty"] floating enable
 for_window [class="Matplotlib"] floating enable 
 #for_window [class="Alacritty"] border pixel 1
 set $wc #ffffff
