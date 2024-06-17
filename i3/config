@@ -24,8 +24,8 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% &&volnoti-show -v $(python3 $HOME/.config/Other/volumebarval.py) && $refresh_i3status 
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%&&volnoti-show -v $(python3 $HOME/.config/Other/volumebarval.py) && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% &&volnoti-show -v $(bash $HOME/.config/Other/volumebarval.sh) && $refresh_i3status 
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%&&volnoti-show -v $(bash $HOME/.config/Other/volumebarval.sh) && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 #volume bar 
@@ -223,14 +223,15 @@ hide_edge_borders smart
 #set color 
 # class                 border  backgr. text    indicator child_border
 client.unfocused          $bc $bc $wc $gr 
-client.focused_inactive $wc $or $wc $gr
+client.focused_inactive $or $or $or $gr
 client.focused        $or $or $wc $gr
 client.urgent           #0f343a #ff0000 $wc $gr
 client.placeholder      $wc #0c0c0c $wc $gr 
 
 client.background       $bc 
-#exec killall picom
-exec --no-startup-id picom -b
-#exec killall conky
 exec --no-startup-id conky 
 exec --no-startup-id birdtray
+#exec killall picom
+
+#IMPORT LAST, may otherwise give issues for other start-up tools 
+exec picom -b
