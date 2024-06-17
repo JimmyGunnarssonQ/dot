@@ -42,7 +42,7 @@ shape = "Block"
 TERM = "xterm-256color"
 
 [font]
-size = 11.25
+size = 14
 
 [font.normal]
 #family = "xos4 Terminess Powerline"
